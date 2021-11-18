@@ -23,31 +23,6 @@
 {% endblock %}
 
 {% block body %}
-			
-		<section >
-			<h2>Pets in stock</h2>
-			<ol>
-				{% for pets_item in pets %}
-				<li class="pet-item">
-					<article>
-						<div class="pet-summary">
-							<div class="pet-image">
-								<img src="" alt="">
-
-							</div>
-							<div class="pet-details">
-								<h3>{{ pets_item.title }}</h3>
-								<address>{{ pets_item.location }}</address>
-
-							</div>
-
-						</div>
-						<div class="pet-actions">
-							<a href="{% url 'pet-detail' pets_item.slug %}" class="btn">More Details</a>
-
-						</div>
-					</article>
-				</li>
-				{% endfor %}
-			</ol>
+		{{ pet_list }}	
+		
 {% endblock %}

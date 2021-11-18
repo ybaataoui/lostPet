@@ -1,0 +1,29 @@
+{% load static %} <!-- nessessairy to use static files-->
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}Find Your Lost Pet.com{% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'pets/styles/index.css' %}"> <!-- this is to call base.css in django -->
+	{% block site_css %}{% endblock %}
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<div class="logo">
+				<img src="" alt="">
+			</div>
+            {% block site_menu %}{% endblock %}
+		</div>	
+	</header>
+    <main>
+		<div class="container">
+			{% block body %}
+			{% endblock %}
+		</div>
+    
+	</main>
+ 
+</body>
+</html>

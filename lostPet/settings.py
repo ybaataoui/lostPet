@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'lostPet.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lostpet',
+        'NAME': 'pettest',
         'HOST': 'localhost',
         'USER': 'root',
         'PASSWORD': 'admin'

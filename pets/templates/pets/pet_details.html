@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ pet_title }}</title>
+    <link rel="stylesheet" href="{% static 'pets/styles/index.css' %}">
+    <link rel="stylesheet" href="{% static 'pets/styles/pet-detail.css' %}">
+
+</head>
+<body>
+    <main>
+        <article>
+            <img src="" alt="">
+
+
+            <section id="location">
+                <h2>Pet Location</h2>
+                <address>This pet is located at <span>LOCATION</span> (ADDRESS)</address>
+            </section>
+
+            <section id="details">
+                <h2>Pet details</h2>
+                <p>{{ pet_description }}</p>
+
+                <footer>
+                    <p>Need help <a href=""> contact as</a></p>
+                </footer>
+            </section>
+
+            <section id="registration">
+                <h2>Join us!</h2>
+            </section>
+
+        </article>
+    </main>
+    
+</body>
+</html>

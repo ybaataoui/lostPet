@@ -1,0 +1,310 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee Input</title>
+        <link rel="stylesheet" href="{% static 'pets/styles/inputstyle.css' %}">
+	</head>
+       
+    <body>
+        <header>
+		<div class="wrapper">
+			<div class="logo">
+				<img src="" alt="">
+			</div>
+			<ul class="nav-area">
+				<li><a href="{% url  'all-pets' %}">Home</a></li>
+				<li><a href="#">Submit Request</a></li>
+				<li><a href="#">Report Pet</a></li>
+				<li><a href="#">FAQ</a></li>
+				<li><a href="#">Login</a></li>
+			</ul>
+		</div>
+		</header>
+		<h1>Input</h1>
+		<hr>
+		<div class="container">
+            <h2>Pet Information</h2>
+			<div class="row">
+                <div class="col-10">
+                    <label for="date">Date</label>
+                </div>
+                <div class="col-90">
+                    <input type="date" id="date" name="date">
+                </div>
+            </div>
+            
+			<div class="row">
+                <div class="col-10">
+                    <label for="type">Type</label>
+                </div>
+                <div class="col-90">
+                    <input type="radio" id="lost" value="Lost">
+						<label for="lost">Lost</label>
+					<input type="radio" id="found" value="Found">
+						<label for="found">Found</label>
+                </div>
+            </div>
+           
+		    <div class="row">
+                <div class="col-10">
+                    <label for="email">Species</label>
+                </div>
+                <div class="col-90">
+                    <select class="dropdown" name="species">
+						<option value="dog">Dog</option>
+						<option value="cat">Cat</option>
+						<option value="editable">Other</option>
+					</select>
+                </div>
+            </div>
+            
+			<div class="row">
+                <div class="col-10">
+                    <label for="breed">Breed</label>
+                </div>
+                <div class="col-90">
+                    <select class="dropdown" name="breed">
+						<optgroup label="Cats">
+							<option value="akita">Bengal</option>
+							<option value="akita">Domestic Shorthair</option>
+							<option value="americanbulldog">Persian</option>
+							<option value="australiancattledog">Ragamuffin</option>
+						<optgroup label="Dogs">
+							<option value="akita">Akita</option>
+							<option value="americanbulldog">American Bulldog</option>
+							<option value="australiancattledog">Australian Cattle Dog</option>
+							<option value="greatdane">Great Dane</option>
+						
+					</select>
+                </div>
+            </div>
+            
+			<div class="row">
+                <div class="col-10">
+                    <label for="gender" required>Gender:</label>
+                </div>
+                <div class="col-90">
+                    <input type="radio" id="male" value="Male">
+						<label for="male">Male</label>
+					<input type="radio" id="female" value="Female">
+						<label for="female">Female</label>
+                </div>
+            </div>
+           
+		    <div class="row">
+                <div class="col-10">
+                    <label for="eyecolor">Eye Color</label>
+                </div>
+                <div class="col-90">
+                    <select class="dropdown" name="eyecolor">
+						<option value="lightbrown">Light Brown</option>
+						<option value="darkbrown">Dark Brown</option>
+						<option value="blue">Blue</option>
+						<option value="green">Green</option>
+						<option value="amber">Amber</option>
+						<option value="grey">Grey</option>
+						<option value="yellow">Yellow</option>
+					</select>
+                </div>
+            </div>
+           
+		    <div class="row">
+                <div class="col-10">
+                    <label for="bodycolor">Body Color</label>
+                </div>
+                <div class="col-90">
+                    <select class="dropdown" name="bodycolor">
+						<option value="merle">Merle</option>
+						<option value="brindle">Brindle</option>
+						<option value="spotted">Spotted</option>
+						<option value="blue">Blue</option>
+						<option value="black">Black</option>
+						<option value="silver">Silver</option>
+						<option value="white">White</option>
+						<option value="cream">Cream</option>
+						<option value="faWN">Fawn</option>
+						<option value="lightbrown">Light Brown</option>
+						<option value="darkbrown">Dark Brown</option>
+						<option value="red">Red</option>
+						<option value="greytabby">Grey Tabby</option>
+						<option value="redtabby">Red Tabby</option>
+						<option value="tuxedo">Tuxedo</option>
+						<option value="tortiseshell">Tortiseshell</option>
+						<option value="calico">Calico</option>
+					</select>
+                </div>
+            </div>
+            			
+			<div class="row">
+                <div class="col-10">
+                    <label for="fixed">Fixed?</label>
+                </div>
+                <div class="col-90">
+                    <input type="radio" id="yes" value="Yes">
+						<label for="yes">Yes</label>
+					<input type="radio" id="no" value="No">
+						<label for="no">No</label>
+                </div>
+            </div>
+            
+			<div class="row">
+                <div class="col-10">
+                    <label for="petphoto">Pet Photo</label>
+                </div>
+                <div class="col-90">
+                    <input type="file" id="petphoto" name="petphoto">
+                </div>
+            </div>
+            
+			<h2>Where was the pet lost/found?</h2>
+			<div class="row">
+                <div class="col-10">
+                    <label for="location">Location</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="location" name="location">
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="city">City</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="city" name="city">
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="state">State</label>
+                </div>
+                <div class="col-90">
+                    <select class="dropdown" name="state">
+						<option value="alabama">AL</option>
+						<option value="alaska">AK</option>
+						<option value="arizona">AZ</option>
+						<option value="arkansas">AR</option>
+						<option value="california">CA</option>
+						<option value="colorado">CO</option>
+						<option value="connecticut">CT</option>
+						<option value="delaware">DE</option>
+						<option value="florida">FL</option>
+						<option value="georgia">GA</option>
+						<option value="hawaii">HI</option>
+						<option value="idaho">ID</option>
+						<option value="illinois">IL</option>
+						<option value="indiana">IN</option>
+						<option value="iowa">IA</option>
+						<option value="kansas">KS</option>
+						<option value="kentucky">KY</option>
+						<option value="louisiana">LA</option>
+						<option value="maine">ME</option>
+						<option value="maryland">MD</option>
+						<option value="massachusetts">MA</option>
+						<option value="michigan">MI</option>
+						<option value="minnesota">MN</option>
+						<option value="mississippi">MS</option>
+						<option value="missouri">MO</option>
+						<option value="montana">MT</option>
+						<option value="nebraska">NE</option>
+						<option value="nevada">NV</option>
+						<option value="newhampshire">NH</option>
+						<option value="newjersey">NJ</option>
+						<option value="newmexico">NM</option>
+						<option value="newyork">NY</option>
+						<option value="northcarolina">NC</option>
+						<option value="northdakota">ND</option>
+						<option value="ohio">OH</option>
+						<option value="oklahoma">OK</option>
+						<option value="oregon">OR</option>
+						<option value="pennsylvania">PA</option>
+						<option value="rhodeisland">RI</option>
+						<option value="southcarolina">SC</option>
+						<option value="southdakota">SD</option>
+						<option value="tennessee">TN</option>
+						<option value="texas">TX</option>
+						<option value="utah">UT</option>
+						<option value="vermont">VT</option>
+						<option value="washington">WA</option>
+						<option value="westvirginia">WV</option>
+						<option value="wisconsin">WI</option>
+						<option value="wyoming">WY</option>
+					</select>
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="zip">Zip Code</label>
+                </div>
+                <div class="col-90">
+                    <input type="number" id="zip" name="zip">
+                </div>
+            </div>
+			
+			<h2>Contact Information</h2>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="fname" name="fname">
+                </div>
+            </div>
+						
+			<div class="row">
+                <div class="col-10">
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="lname" name="lname">
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="phone">Phone Number</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="phone" name="phone">
+                </div>
+            </div>
+						
+			<div class="row">
+                <div class="col-10">
+                    <label for="email">Email</label>
+                </div>
+                <div class="col-90">
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="notes">Notes</label>
+                </div>
+                <div class="col-90">
+                    <textarea name="notes" id="notes" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+			
+			<div class="row">
+                <div class="col-10">
+                    <label for="logged">Logged By</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="logged" name="logged">
+                </div>
+            </div>
+			
+			<div class="row">
+                <input type="submit" value="Submit">
+			</div>  
+        </div>  
+    </body>
+</html>
