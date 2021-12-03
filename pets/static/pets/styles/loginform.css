@@ -1,0 +1,10 @@
+#loginform{
+    background-color: #CCD4E2;
+    width: 30em;
+    padding-bottom: 1.5em;
+    padding-top: 1.5em;
+    border-radius: 25px;
+}
+#form-control{
+    color: cornsilk;
+}

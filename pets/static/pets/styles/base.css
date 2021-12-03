@@ -1,0 +1,114 @@
+.newbutton {
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #8CC63F;
+    line-height: 30px;
+    margin: 0 5px;
+    padding: 5px 10px 5px 35px;
+    box-shadow: 2px 2px 2px #666;
+    -moz-box-shadow: 2px 2px 2px #666;
+    -webkit-box-shadow: 2px 2px 2px #666;
+    font-weight: bold;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+#footer {
+    clear: both;
+    position: relative;
+    height: 2.5em;
+    margin-top: -2.5em;
+}
+#container {
+    width: 1000px;
+    background-color: transparent;
+    margin: 0 auto 0 auto;
+    background-color: #FFFFFF;
+    padding-right: 15px;
+}
+#content
+{
+	padding-top:15px;
+	padding-bottom: 2.5em;
+	margin: 0 auto 0 auto;
+
+}
+#OrderTrackingBorder
+{
+	margin-top:15px;
+	width:1300px;
+	height:100%;
+	min-height:100%;
+	background-color:#CCD4E2;
+	padding:5px 5px 0px 5px;
+	margin-left: 2px;
+}
+
+.repo_icon
+{
+	background:url('../images/bullets.png') no-repeat;
+	height:12px;
+	left:5px;
+	position:absolute;
+	top:5px;
+	width:12px;
+}
+
+div.opened .repo_icon 
+{
+	background-position:left bottom;
+}
+#RepositoryFilterContainer
+{
+	border: 1px solid #00235b; 
+	width: 1250px;
+	background-color: white;
+	padding: 0 5px;
+	height: 40px;
+}
+
+#RepositoryFilterTop
+{
+	cursor:pointer;
+	border-bottom: none;
+	background-color: #00235b; 
+	position:relative;
+	width: 1250px;
+	height: 20px;
+	color: white;
+	padding-left: 25px;
+	padding-top: 2px;
+	font-weight: bold;
+}
+
+header
+{
+    
+    width: 1310px; 
+    padding-left: -10px;
+    
+}
+
+.container-fluid {
+    width: 1310px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+.container
+{
+	background-color:transparent;
+	margin: 0 auto 0 auto;
+	background-color: #CCD4E2;
+	padding-left: 0em;
+	padding-right: 0em;
+    width: 1310px;
+}
+
+
+
+

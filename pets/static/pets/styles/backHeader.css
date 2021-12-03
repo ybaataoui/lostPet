@@ -1,0 +1,35 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.wrapper{
+	width: 1170px;
+	margin:auto;
+}
+header{
+	background-color: #39ff14;
+	height: 150px;
+	-webkit-background-size:cover;
+	background-size:cover;
+	background-position: center center;
+	position: relative;
+}
+.nav-area{
+	float: right;
+	list-style: none;
+	margin-top:30px;
+}
+.nav-area li{
+	display: inline-block;
+}
+.nav-area li a{
+	color: #fff;
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family:poppins;
+	font-size: 16px;
+}
+.nav-area li a:hover{
+	background: #fff;
+	color: #333;
+}

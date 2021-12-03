@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h2>Employee Form</h2>
+
+        <form method="post" id="employeeForm"  novalidate>
+            {% csrf_token %}
+            
+            {% if messages %}
+                {% for x in messages %}
+                    <h3>{{ x }}</h3>
+                {% endfor %}
+            {% endif %}
+            <table>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" placeholder="Enter your first name" name="first_name"></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" placeholder="Enter your last name" name="last_name"></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td><input type="text" placeholder="Enter your phone number" name="phone"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="text" placeholder="Enter your email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>User Name:</td>
+                    <td><input type="text" placeholder="Enter your user name" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" placeholder="Enter your password" name="password"></td>
+                </tr>
+                <tr>
+                    <td>User Type:</td>
+                    <td>
+                        <select name="type" id="">
+                            <option value="" selected disabled="True">--Select a Type--</option>
+                            <option value="Admin">Admin</option>
+                            <Option value="Regular">Regular</Option>
+                        </select>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Adress:</td>
+                    <td><input type="text" placeholder="Enter your address" name="street"></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" placeholder="Enter The City" name="city"></td>
+                </tr>
+                <tr>
+                    <td>Zip Code:</td>
+                    <td><input type="text" placeholder="Enter Zip Code" name="zip_code"></td>
+                </tr>
+                <tr>
+                    <td>State:</td>
+                    <td>
+                        <select name="state" id="">
+                        <option value="" selected disabled="True">--Select a State--</option>
+                        <option value="">Florida</option>
+                        <Option>Texas</Option>
+                        </select>
+                    </td>
+                </tr>  
+            </table>
+            <input type="submit" value="Save" name="" id="">
+            <!--<button type="submit">Save</button>-->
+            
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,229 @@
+{% extends 'pets/base/base.html' %}
+
+{% load static %} <!-- nessessairy to use static files-->
+
+{% block title %}Find Your Lost Pet.com{% endblock %}
+
+{% block site_css %}
+	<link rel="stylesheet" href="{% static 'pets/styles/style.css' %}">
+	
+{% endblock %}
+	
+	
+{% block site_menu %}
+	<!--<ul class="nav-area">
+		<li><a href="{% url 'home' %}">Home</a></li>
+		<li><a href="{% url 'about' %}">About</a></li>
+		<li><a href="#">Services</a></li>
+		<li><a href="#">Report/Find Pet</a></li>
+		<li><a href="{% url 'FAQ' %}">FAQ</a></li>
+		<li><a href="{% url 'login' %}">Login</a></li>
+	</ul>-->
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">In Stock</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">Action Required</a>
+					</li>
+					<li class="nav-item">
+							<a class="nav-link active" href="#">Pending</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Report Lost</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link active">Removed</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link active">Picked Up</a>
+					  </li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	<table width="100%" cellpadding="2">
+		<tbody>
+			<tr>
+				<td width="500" style="text-align:left; padding-top:5px; padding-bottom:10px;">
+				<span class="addicon"></span><a href="{% url 'add-pet' %}" class="newbutton">Add Pet(s)</a>
+				<span class="findicon"></span><a href="" class="newbutton">Find a Pet</a>
+				</td>	
+							
+			</tr>
+		</tbody>
+	</table> 
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div id="content">
+		<div id="OrderTrackingBorder">
+
+			<form id="addressForm" name="addressForm" method="get" style="margin: 0 0 0 12px;">
+				<div id="RepositoryFilterTop" class="opened">
+					<span class="repo_icon"></span> Filter Results: 
+				</div>
+
+				<div id="RepositoryFilterContainer" >
+					<table width="100%" cellpadding="1">					
+							<tbody>
+								<tr>
+									<td style="width:150px; padding-top:5px;">
+										<select id="filter" class="txt" style="width:150px;" name="filter">
+											<option value="controlID">Control ID</option>
+											<option value="dateFound">Date Found</option>
+											<option value="lastName">Guest Name</option>
+											<option value="itemDesc">Item Description</option>
+											<option value="detailedDesc">Detailed Description</option>
+											<option value="roomNo">Location Found</option>
+											<option value="claimPending" class="no_search">Claim Pending</option>
+											<option value="pickupRequested" class="no_search">Pick Up Requested</option>
+											<option value="declinedReturns" class="no_search">Declined Returns</option>
+											<option value="storageLocation">Storage Location</option>
+											<option value="invalidEmail" class="no_search">Invalid Email</option>
+											<option value="retentionValue" class="no_search">High Value Items</option>
+											<option value="pastRetention" class="no_search">Past Retention Period</option>
+										</select>
+									</td>
+									<td style="width:190px; padding-top:7px;" id="searchInput">
+										<input name="search" id="search" class="txt" style="width:175px; margin-left: 2px; margin-right: 7px;" placeholder="Search Keyword" type="text" value="">
+									</td>
+									<td style="width:40px; padding-top: 5px;" id="goBtnRow">
+										<input name="go_button" value="Go" id="go_button" class="repo_btn" style="width:40px; font-size:12px;" type="button" onclick="this.form.submit()">
+									</td>
+									<td width="435" style="text-align:right; padding-right: 5px; padding-top:5px;">
+										<input type="hidden" name="filterSettings" id="filterSettings" value="">
+									<span>Select Page No:</span>
+									<select id="page" class="txt" style="width:55px;" name="page" onchange="this.form.submit()">
+										<option selected="" value="1">1</option> 
+											<option value="2">2</option> 
+											<option value="3">3</option> 
+											<option value="4">4</option> 
+											<option value="5">5</option> 
+											<option value="6">6</option> 									<option value="7">7</option> 
+
+										</select>
+									<span style="padding-left:12px;">Results Per Page:</span>
+										<select id="perPage" class="txt" style="width:55px;" name="perPage" onchange="this.form.submit()">
+											<option selected="" value="25">25</option> 
+											<option value="50">50</option> 
+											<option value="75">75</option> 
+											<option value="100">100</option> 
+										</select>
+									</td>
+									<td width="215" style="text-align:right; padding-top:5px; padding-right: 5px;">
+									<span style="font-weight:bold;">Results:</span> <span style="font-weight:bold; padding-left:7px;">1 of 2</span>
+									</td>
+								</tr>
+							</tbody>
+					</table>
+				</div>
+			</form>
+
+			<form name="changeState" id="changeState" class="primaryForm" method="post" style="margin-top:-10px">
+				<input type="hidden" name="formAction" id="formAction">
+					<table width="1250px" align="center" style="margin:20px 10px 0 12px; table-layout: fixed;" id="repositoryData">
+					<tbody>
+						<tr style="border:#FFF 1px solid;">
+							<td class="AddressTableHeading" nowrap="nowrap" width="70px">
+								<a href="">Date Found</a>
+							</td>
+							<td class="AddressTableHeading" nowrap="nowrap" width="90px">
+								<a href="">Pet ID</a>								
+							</td>
+							<td class="AddressTableHeading" nowrap="nowrap" width="95px">
+								<a href="">Pet Type</a>
+							</td>
+							<td class="AddressTableHeading" nowrap="nowrap" width="150px">
+								<a href="">Detailed Description</a>
+							</td>
+							<td align="center" class="AddressTableHeading" nowrap="nowrap" width="85px">
+								<a href="">Location Found</a>
+							</td>
+							<td class="AddressTableHeading" nowrap="nowrap" width="95px">
+								<a href="">Guest Name</a>
+							</td>
+																							<!-- Header row space for Edit button -->
+							<td class="AddressTableHeading" nowrap="nowrap" width="80px">
+								<a href="">Storage</a>
+							</td>
+							<td class="AddressTableHeading" style="width:55px;"></td>
+							<td class="AddressTableHeading" style="width:0px;" align="center"></td>
+							<td class="AddressTableHeading" style="width:30px;" align="center">
+								<input type="checkbox" id="selectAll" class="chk" name="selectAll" onclick="checkedAll('changeState');">
+							</td>
+						</tr>
+						{% for pet in pet_list %}
+						<tr id="basic-modal" class="AddressTableRow" style="">
+							
+							<td nowrap="nowrap" class="AddressTableCol">{{ pet.date_reported }}</td>
+
+							<td class="AddressTableCol"><div class="truncate" title="">{{ pet.id }}</div></td> 
+
+							<td nowrap="nowrap" class="AddressTableCol"><div class="truncate" title="Glasses">{{ pet.pet_type }}</div></td> 
+
+							<td class="AddressTableCol" width="250px"><div class="truncate" title="Womens navy blue and cheetah (Prada) brand">{{ pet.species }}</div></td> 
+
+							<td align="center" class="AddressTableCol"><div class="truncate" title="sr backstage">{{ pet.street }}</div></td> 
+
+							<td nowrap="nowrap" class="AddressTableCol"><div class="truncate" title="">{{ pet.owner }}</div></td> 
+							<td class="AddressTableCol"><div class="truncate" title="R104">{{ pet.employee }}</div></td>
+
+							<td class="AddressTableCol" width="55px" style="padding-right:20px;">
+								<input name="edit[]" type="button" style="width:60px;" class="repo_btn" value="View" onclick="window.location.href='addItem.php?id=5828966'">
+							</td>
+							<td class="AddressTableCol" width="30px" style="padding-right:0px;">
+								<input type="hidden" name="repositoryIdVal" class="repositoryId" value="5277756">
+							</td>
+							<td class="AddressTableCol"  align="center">
+								<input name="id[]" type="checkbox" class="chk" value="5277756">
+							</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+
+					
+			</form>
+			<form name="changeState" id="changeState" class="primaryForm" method="post" style="margin-top:-10px">
+				<input type="hidden" name="formAction" id="formAction">
+						</tbody>
+					</table>
+						<div id="address_nav_container"> 
+							<br>
+								<center>
+									<input type="button" class="repo_btn" disabled="" value="First">
+									<input type="button" class="repo_btn" style="margin-left: 10px;" disabled="" value="<<">
+									<span style="color:grey;"><span style="padding-left:12px; padding-right: 12px;"> 1 </span></span>
+									<span style="padding-left:12px; padding-right: 12px;"><a style="font-weight:bold; text-decoration:underline;" href="">2</a></span>  
+									<input type="button" class="repo_btn" onclick="" value=">>">
+									<input type="button" class="repo_btn" style="margin-left: 10px;" onclick="" value="Last">
+								</center>
+							<br>
+						</div>
+						<div style="margin-bottom: 50px; margin-left: 13px; margin-top: 10px; width: 923px;" class="center">
+						
+							<div style="text-align:left; float:left;">
+							<span class="addicon"></span><a href="{% url 'add-pet' %}" class="newbutton">Add Pet(s)</a>
+							</div>
+							<div style="margin-right: -325px; float:right; text-align:right;">
+								<input name="remove" id="remove" value="Remove Pet(s)" type="button" style="height: 28px; width: 115px;" class="repo_btn" disabled="disabled">
+								<input name="picked_up" id="picked_up" value="Pet(s) Picked Up" type="button" style="height: 28px; width: 125px;" class="repo_btn" disabled="disabled">
+							</div>
+																					
+						</div>
+						
+			  			<input type="hidden" name="csrf" value="2226ad70e4fa18805c230e8c329397c8">		
+			</form>
+		</div>
+		
+	</div>
+</div>				
+{% endblock %}

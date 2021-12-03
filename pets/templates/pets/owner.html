@@ -1,0 +1,106 @@
+
+{% extends 'pets/base/base.html' %}
+
+{% load static %}  <!--nessessairy to use static files-->
+
+{% block title %}Find Your Lost Pet.com{% endblock %}
+
+{% block site_css %}
+	<link rel="stylesheet" href="{% static 'pets/styles/all_pets.css' %}">
+
+{% endblock %}
+	
+	
+{% block site_menu %}
+	<ul class="nav-area">
+        <li><a href="{% url  'home' %}">Home</a></li>
+		<li><a href="{% url  'list_pets' %}">Pets</a></li>
+		<li><a href="">Log In</a></li>
+		<li><a href="#">How It Works</a></li>
+		<li><a href="#">FAQ</a></li>
+		<li><a href="#">Support</a></li>
+	</ul>
+{% endblock %}
+
+{% block body %}
+		<center>
+            <h1>Add a New Pet Owner to Database</h1>
+            <br><br>
+
+            {% if submitted %}
+
+                <p>Pet Owner was submitted successfully!</p>
+
+            {% else %}
+                <form action="" method="POST" name="">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td><label for="">First Name:</label></td>
+                            <td>{{ form.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Last Name:</label></td>
+                            <td>{{ form.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Phone Number:</label></td>
+                            <td>{{ form.phone}}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="">Email:</label></td>
+                            <td>{{ form.email}}</td>
+                        </tr>
+                    </table>
+
+                    <input type="submit" value="Submit" class="btn btn-secondary">
+                </form>
+            {% endif %}
+
+        </center>	
+		
+{% endblock %} 
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner</title>
+</head>
+<body>
+    <div >
+        <form action="" method="POST" name="NewOwner">
+            {% csrf_token %}
+
+                    <div class="col-90">
+                        <table>
+                            <tr>
+                                <td><label>First Name:</label></td>
+                                <td><input type="text" id="location" name="first_name"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Last Name:</label></td>
+                                <td><input type="text" id="location" name="last_name"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Phone:</label></td>
+                                <td><input type="text" id="location" name="phone"></td>
+                            </tr>
+                            <tr>
+                                <td><label>Email:</label></td>
+                                <td><input type="text" id="location" name="email"></td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <button type="submit">Add</button>
+                                </th>
+                            </tr>
+                        </table>    
+                    </div>
+        </form>
+
+    </div>
+    
+</body>
+</html> -->
