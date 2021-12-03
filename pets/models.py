@@ -2,6 +2,9 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import PROTECT
 from django import forms
+from django.db.models.fields import DateField
+from django.forms import widgets
+from django.utils import timezone
 
 
 
@@ -12,7 +15,7 @@ class PetOwner(models.Model):
     email      = models.EmailField(unique=True)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.first_name 
 
 class Species(models.Model):
     name = models.CharField(max_length=255)
@@ -33,8 +36,8 @@ class Breed(models.Model):
     def __str__(self):
         return self.name + ' ' + self.species.name
 
-class State(models.Model):
-    name = models.CharField(max_length=255)
+#class State(models.Model):
+    #name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
@@ -48,18 +51,19 @@ class Employee(models.Model):
         (USER_REGULAR, 'Regular')
     ]
 
+    
     first_name = models.CharField(max_length=255)
     last_name  = models.CharField(max_length=255)
     phone      = models.CharField(max_length=255)
     email      = models.EmailField(unique=True)
     username   = models.CharField(max_length=255)
     password   = models.CharField(max_length=255)
-    type       = models.CharField(max_length=1, choices=USER_TYPE, default=USER_REGULAR)
+    type       = models.CharField(max_length=255, choices=USER_TYPE)
     street     = models.CharField(max_length=255)
     city       = models.CharField(max_length=255)
-    zip_code   = models.CharField(max_length=15, )
-    state      = models.ForeignKey(State, on_delete=models.PROTECT)
-
+    zip_code   = models.CharField(max_length=15)
+    state      = models.CharField(max_length=30, default='Florida')
+    
     def __str__(self):
         return self.first_name + ' ' + self.last_name
 
@@ -90,28 +94,30 @@ class Pet(models.Model):
 
     PET_LOST = 'L'
     PET_FOUND = 'F'
-    PET_CHOICES = [ (PET_LOST, 'Lost'), (PET_FOUND, 'Found')]
+    PET_DF = 'D'
+    PET_CHOICES = [ (PET_LOST, 'Lost'), (PET_FOUND, 'Found'), (PET_DF, '---Select Type---')]
 
     
     #PET_TYPE = forms.ChoiceField(choices=PET_CHOICES, widget=forms.RadioSelect)
-    pet_type    = models.CharField(max_length=1, choices=PET_CHOICES, blank=True)
-    species     = models.ForeignKey(Species, on_delete=models.PROTECT,  blank=True )
-    body_color  = models.CharField(max_length=3, choices=BODY_COLOR, blank=True)
-    eye_color   = models.CharField(max_length=3, choices=EYE_COLOR, blank=True)
+    
+    pet_type    = models.CharField(max_length=25,  blank=True)
+    species     = models.CharField(max_length=255, blank=True)
+    body_color  = models.CharField(max_length=30,  blank=True)
+    eye_color   = models.CharField(max_length=30,  blank=True)
     description = models.CharField(max_length=255, blank=True)
     picture     = models.ImageField(null=True)
-    gender      = models.CharField(max_length=1, choices=GENDER_CHOICES, blank=True)
-    fixed       = models.CharField(max_length=1, choices=FIXED_CHOICES, default=PET_NO, blank=True)
-    breed       = models.ForeignKey(Breed, on_delete=models.PROTECT,  blank=True )
-    employee    = models.ForeignKey('Employee', on_delete=models.PROTECT )
-    owner       = models.ForeignKey(PetOwner, on_delete=models.PROTECT,  blank=True )
-    date_reported = models.DateField(auto_now_add=True, blank=True)
+    gender      = models.CharField(max_length=25, blank=True)
+    fixed       = models.CharField(max_length=25, blank=True)
+    breed       = models.CharField(max_length=255, blank=True)
+    employee    = models.ForeignKey(Employee, on_delete=models.PROTECT, blank=True, null=True )
+    owner       = models.ForeignKey(PetOwner, on_delete=models.PROTECT,  blank=True, null=True )
+    date_reported = models.DateField(default=timezone.now, blank=True)
     date_lost    = models.DateField(null=True, blank=True)
     date_found   = models.DateField(null=True, blank=True)
     street       = models.CharField(max_length=255, blank=True)
     city         = models.CharField(max_length=255, blank=True, default='Orlando')
     zip_code     = models.CharField(max_length=15, blank=True, default=32819)
-    state        = models.ForeignKey(State, on_delete=models.PROTECT, blank=True, default='Fl')
+    state        = models.CharField(max_length=30, default="Florida")
 
     def __str__(self):
-        return self.species.name
+        return self.species 

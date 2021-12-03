@@ -1,6 +1,9 @@
 .wrapper{
-	width: auto;
+	width: 1200px;
 	margin:auto;
+}
+body{
+    padding-left: 20em;
 }
 header{
 	background-color: #2f5597;
@@ -97,19 +100,15 @@ input[type=submit] {
 input[type=submit]:hover {
 background-color: #32a336;
 }
-.container{
-    border-radius: 5px;
-    background-color:#dae3f3;
-    padding: 20px;
-}
+
 .col-10{
     float: left;
-    width:10%;
+    width:100px;
     margin-top: 6px;
 }
 .col-90{
     float: left;
-    width: 90%;
+    width: 400px;
     margin-top: 6px;
 }
 .row:after{
@@ -124,7 +123,7 @@ background-color: #32a336;
 }
 #city, #fname, #lname, #phone, #email, #logged{
     float: left;
-    width: 35%;
+    width: 100px;
     margin-top: 6px;
 }
 select.dropdown {
